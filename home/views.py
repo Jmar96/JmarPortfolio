@@ -6,5 +6,5 @@ from datetime import datetime
 # Create your views here.
 class HomeView(TemplateView):
     template_name = 'home/welcome.html'
-    # extra_context = {'today': datetime.today()}
+    extra_context = {'today': datetime.today()}
 
