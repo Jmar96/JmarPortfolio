@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script><!-- <script src="../assets/js/color-modes.js"></script> -->
+    <!-- <script src="../assets/js/color-modes.js"></script> -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -181,17 +181,17 @@
                     <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
                     <ul class="navbar-nav ms-auto"><!-- <ul class="navbar-nav me-auto mb-2 mb-md-0"> -->
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#aboutme">About</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#">Resume</a>
-                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
+                            <a class="nav-link" href="#resume">Resume</a>
                         </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link active" href="#services">Services</a>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="#portfolio">Portfolio</a>
                         </li>
@@ -216,9 +216,9 @@
         <!-- welcome.html Start -->
         <!-- ======= Hero Section ======= -->
         <section id="hero">
-            <div class="hero-container">
+            <div class="hero-container" data-aos="fade-in">
                 <h1>jMar</h1>
-                <h2>I'm a Software Engineer in PH</h2>
+                <h2>I'm a <span class="typed" data-typed-items="Web Developer, Application Systems Engineer, Freelancer"></span> in PH</h2>
                 <a href="#aboutme" class="btn-scroll scrollto text-decoration-none" title="Scroll Down">&#9660;</a>
             </div>
         </section><!-- End Hero -->
@@ -230,8 +230,7 @@
                 <div class="section-title">
                     <span>About Me</span>
                     <h2>About</h2>
-                    <p>A little information about me.
-                    </p>
+                    <!-- <p>A little information about me.</p> -->
                 </div>
 
                 <div class="row">
@@ -240,12 +239,8 @@
                     </div>
                     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <h3>Web Developer &amp; Software Engineer.</h3>
-                        <p class="fst-italic">
-                            I'm assessing systems, determining problems, providing solutions to issues that arise,
-                            designing
-                            systems, upgrading systems, maintaining systems and brainstorming possible improvements that
-                            can be
-                            made to a system in the future.
+                        <p>
+                            I'm a career shifter worked as a Workforce Analyst for 5 years and currently working now as a Software Engineer.
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
@@ -253,7 +248,7 @@
                                     <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span>
                             </li> -->
                                     <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
-                                        <span>www.jmar.space</span>
+                                        <span>N/A</span>
                                     </li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63
                                             9452913067</span>
@@ -290,78 +285,82 @@
         <div class="container">
             <hr class="featurette-divider">
         </div>
-        <section id="services">
 
-            <div class="section-title">
-                <span>My Services</span>
-                <h2>My Services</h2>
-                <p>Check the carousel to see my services.</p>
-            </div>
+        <!-- ======= Resume Section ======= -->
+        <section id="resume" class="resume">
+            <div class="container">
 
-            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                <div class="section-title">
+                    <span>My Resume</span>
+                    <h2>Resume</h2>
+                    <!-- <p>Check the carousel to see my services.</p> -->
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/cyberpunk-06-street.png" alt="">
-                        <div class="container">
-                            <div class="carousel-caption text-start">
-                                <h1>Example headline.</h1>
-                                <p class="opacity-75">Some representative placeholder content for the first slide of the
-                                    carousel.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                            </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-up">
+                        <h3 class="resume-title">Summary</h3>
+                        <div class="resume-item pb-0">
+                            <h4>jmar</h4>
+                            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
+                                    and developing user-centered digital/print marketing material from initial concept
+                                    to final, polished deliverable.</em></p>
+                            <ul>
+                                <li>Pansol, Quezon City</li>
+                                <li>+63 94529 13067</li>
+                                <li>jaymaryugo90@gmail.com</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="resume-title">Education</h3>
+                        <div class="resume-item">
+                            <h4>Bachelor of Science in Information Technology</h4>
+                            <h5 class="fst-italic">2013 - 2017</h5>
+                            <p><em>Access Computer College, PH</em></p>
+                            <p>
+                                Studied Website Development.
+                            </p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/cyberpunk-10-whiteHairWoman.jpg" alt="">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Another example headline.</h1>
-                                <p>Some representative placeholder content for the second slide of the carousel.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                            </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="resume-title">Professional Experience</h3>
+                        <div class="resume-item">
+                            <h4>Application Systems Engineer</h4>
+                            <h5 class="fst-italic">2022 - Present</h5>
+                            <p><em>Fujitsu PH </em></p>
+                            <ul>
+                                <li>Responsible for assessing systems, determining problems, providing solutions to issues that arise,
+                                    designing systems, upgrading systems, maintaining systems and brainstorming possible improvements that
+                                    can be made to a system in the future.</li>
+                                <li>Do Unit Testing to existing systems.</li>
+                                <li>Perform Reverse Engineering, examining the systems structure and create UI Documentaion</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/cyberpunk-03-realpeople.jpg" alt="">
-                        <div class="container">
-                            <div class="carousel-caption text-end">
-                                <h1>One more for good measure.</h1>
-                                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                            </div>
+                        <div class="resume-item">
+                            <h4>Workforce Analysts Supervisor</h4>
+                            <h5 class="fst-italic">2020 - 2022</h5>
+                            <p><em>Supports Services Group, PH</em></p>
+                            <ul>
+                                <li>Lead the Workforce Team in implementing the Workforce Policies to ensure employees productivity.</li>
+                                <li>Develop and Maintain the companies Integrated System</li>
+                                <li>Responsible for Employees Schedules.</li>
+                                <li>Perform Queue management to reduce end-user wait times and increase employee productivity.</li>
+                            </ul>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Workforce Analysts</h4>
+                            <h5 class="fst-italic">2017 - 2020</h5>
+                            <p><em>Asia Premier One Source Inc, PH</em></p>
+                            <ul>
+                                <li>Created a System for Workforce Department for daily monitoring purposes and eventually became Integrated System to be used in the whole company.</li>
+                                <li>Implementing Workorce Policies to ensure employees productivity</li>
+                                <li>Responsible for the Employees Schedules.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+
             </div>
-        </section>
+        </section><!-- End Resume Section -->
 
         <div class="container marketing" id="portfolio">
             <!-- START THE FEATURETTES -->
@@ -370,8 +369,8 @@
 
             <div class="section-title">
                 <span>My Portfolio</span>
-                <h2>My Portfolio</h2>
-                <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+                <h2>Portfolio</h2>
+                <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
             </div>
 
             <div class="row featurette">
@@ -436,6 +435,71 @@
 
             <hr class="featurette-divider">
 
+            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg> -->
+                        <img src="static/images/cyberpunk-06-street.png" alt="">
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1>Example headline.</h1>
+                                <p class="opacity-75">Some representative placeholder content for the first slide of the
+                                    carousel.</p>
+                                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg> -->
+                        <img src="static/images/cyberpunk-10-whiteHairWoman.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Another example headline.</h1>
+                                <p>Some representative placeholder content for the second slide of the carousel.</p>
+                                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                </svg> -->
+                        <img src="static/images/cyberpunk-03-realpeople.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h1>One more for good measure.</h1>
+                                <p>Some representative placeholder content for the third slide of this carousel.</p>
+                                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <hr class="featurette-divider">
             <!-- /END THE FEATURETTES -->
 
         </div><!-- /.container -->
@@ -574,8 +638,10 @@
         </footer>
     </main>
     <script src="static/plugins/bootstrap-5.3.0/assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="static/plugins/iPortfolio/assets/vendor/typed.js/typed.umd.js"></script>
 
+    <script src="static/js/main.js"></script>
+    
 </body>
 
 </html>
