@@ -16,10 +16,12 @@
 
 
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/portfolio.css">
 
 
     <link href="static/plugins/bootstrap-5.3.0/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/plugins/iPortfolio/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/plugins/glightbox/css/glightbox.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -220,7 +222,9 @@
         <section id="hero">
             <div class="hero-container" data-aos="fade-in">
                 <h1>jMar</h1>
-                <h2>I'm a <span class="typed" data-typed-items="Programmer, Web Developer, Application Systems Engineer, Freelancer"></span> in PH</h2>
+                <h2>I'm a <span class="typed"
+                        data-typed-items="Programmer, Web Developer, Application Systems Engineer, Freelancer"></span>
+                    in PH</h2>
                 <a href="#aboutme" class="btn-scroll scrollto text-decoration-none" title="Scroll Down">&#9660;</a>
             </div>
         </section><!-- End Hero -->
@@ -242,7 +246,8 @@
                     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <h3>Web Developer &amp; Software Engineer.</h3>
                         <p>
-                            I'm a career shifter worked as a Workforce Analyst for 5 years and currently working now as a Systems Engineer.
+                            I'm a career shifter worked as a Workforce Analyst for 5 years and currently working now as
+                            a Systems Engineer.
                         </p>
                         <div class="row">
                             <div class="col-lg-6">
@@ -250,12 +255,14 @@
                                     <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span>
                             </li> -->
                                     <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong>
-                                        <a href="https://www.linkedin.com/in/jaymaryugo" target="_blank"><span>www.linkedin.com/in/jaymaryugo</span></a>
+                                        <a href="https://www.linkedin.com/in/jaymaryugo"
+                                            target="_blank"><span>www.linkedin.com/in/jaymaryugo</span></a>
                                     </li>
                                     <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63
                                             9452913067</span>
                                     </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Quezon City,
+                                    <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Quezon
+                                            City,
                                             PH</span>
                                     </li>
                                 </ul>
@@ -284,123 +291,77 @@
 
             </div>
         </section><!-- End About Section -->
-
-        <div class="container marketing" id="portfolio">
-            <!-- START THE FEATURETTES -->
-
+        
+        <div class="container">
             <hr class="featurette-divider">
+        </div>
 
-            <div class="section-title">
-                <span>My Portfolio</span>
-                <h2>Portfolio</h2>
-                <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
-            </div>
+        <!-- ======= My Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
 
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">Online Library System with RFID<span class="text-body-secondary">.</span></h2>
-                    <p class="lead">Online Library System with RFID for better management. Our college thesis project for AMA Computer Learning Center.</p>
+                <div class="section-title">
+                    <span>My Portfolio</span>
+                    <h2>My Portfolio</h2>
+                    <p>My previous projects</p>
                 </div>
-                <div class="col-md-5">
-                    <img src="static/images/OnlineLibrarySystemWithRFID.png" width="100%" height="100%" alt="">
-                </div>
-            </div>
-            
-            <hr class="featurette-divider">
-            
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">AIS<span class="text-body-secondary">.</span></h2>
-                    <p class="lead">An Integrated System consist of different modules for different departments.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img src="static/images/AIS.png" width="100%" height="100%" alt="">
-                </div>
-            </div>
-            
-            <hr class="featurette-divider">
-            
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading fw-normal lh-1">Z Survival<span class="text-body-secondary">.</span>
-                    </h2>
-                    <p class="lead">A top down android 2D game.</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="static/images/icon 512x512 px.png" width="100%" height="100%" alt="">
-                </div>
-            </div>
 
-            <hr class="featurette-divider">
+                <ul id="portfolio-flters" class="d-flex justify-content-center">
+                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter=".filter-app">App</li>
+                    <li data-filter=".filter-card">Game</li>
+                    <li data-filter=".filter-web">Web</li>
+                </ul>
 
-            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/OnlineLibrarySystemWithRFID.png" alt="">
-                        <div class="container">
-                            <div class="carousel-caption text-start">
-                                <h1>My Projects</h1>
-                                <p class="opacity-75">Check out the systems I created.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                            </div>
+                <div class="row portfolio-container">
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-img"><img src="static\images\AIS.png" class="img-fluid"
+                                alt=""></div>
+                        <div class="portfolio-info">
+                            <h4>AIS</h4>
+                            <p>APOSI Integrated System - Management System for the APOSI</p>
+                            <a href="static\images\AIS.png" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                    class="bx bx-link"></i></a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/JmarSoloRiding.jpg" alt="">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>My Youtube Channel</h1>
-                                <p>Random videos of my ordinary life.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Check out my videos</a></p>
-                            </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-img"><img src="static\images\OnlineLibrarySystemWithRFID.png" class="img-fluid"
+                                alt=""></div>
+                        <div class="portfolio-info">
+                            <h4>Online Library System</h4>
+                            <p>Online Library System with RFID for AMA Learning Centers</p>
+                            <a href="static\images\OnlineLibrarySystemWithRFID.png" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                    class="bx bx-link"></i></a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                </svg> -->
-                        <img src="static/images/cyberpunk-03-realpeople.jpg" alt="">
-                        <div class="container">
-                            <div class="carousel-caption text-end">
-                                <h1>HD Cyberpunk Pictures</h1>
-                                <p>My collection of futuristic science fiction images based on Cyberpunk genre.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                            </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-img"><img src="static\images\zSurvivor.png" class="img-fluid"
+                                alt=""></div>
+                        <div class="portfolio-info">
+                            <h4>Z Survivor</h4>
+                            <p>2D top down zombie shooting game</p>
+                            <a href="static\images\zSurvivor.png" data-gallery="portfolioGallery"
+                                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                    class="bx bx-link"></i></a>
                         </div>
                     </div>
+
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+
             </div>
+        </section><!-- End My Portfolio Section -->
 
+        <div class="container">
             <hr class="featurette-divider">
-            <!-- /END THE FEATURETTES -->
-
-        </div><!-- /.container -->
-
+        </div>
 
         <!-- ======= Resume Section ======= -->
         <section id="resume" class="resume">
@@ -443,11 +404,14 @@
                             <h5 class="fst-italic">2022 - Present</h5>
                             <p><em>Fujitsu PH </em></p>
                             <ul>
-                                <li>Responsible for assessing systems, determining problems, providing solutions to issues that arise,
-                                    designing systems, upgrading systems, maintaining systems and brainstorming possible improvements that
+                                <li>Responsible for assessing systems, determining problems, providing solutions to
+                                    issues that arise,
+                                    designing systems, upgrading systems, maintaining systems and brainstorming possible
+                                    improvements that
                                     can be made to a system in the future.</li>
                                 <li>Do Unit Testing to existing systems.</li>
-                                <li>Perform Reverse Engineering, examining the systems structure and create UI Documentaion</li>
+                                <li>Perform Reverse Engineering, examining the systems structure and create UI
+                                    Documentaion</li>
                             </ul>
                         </div>
                         <div class="resume-item">
@@ -455,10 +419,12 @@
                             <h5 class="fst-italic">2020 - 2022</h5>
                             <p><em>Supports Services Group, PH</em></p>
                             <ul>
-                                <li>Lead the Workforce Team in implementing the Workforce Policies to ensure employees productivity.</li>
+                                <li>Lead the Workforce Team in implementing the Workforce Policies to ensure employees
+                                    productivity.</li>
                                 <li>Develop and Maintain the companies Integrated System</li>
                                 <li>Responsible for Employees Schedules.</li>
-                                <li>Perform Queue management to reduce end-user wait times and increase employee productivity.</li>
+                                <li>Perform Queue management to reduce end-user wait times and increase employee
+                                    productivity.</li>
                             </ul>
                         </div>
                         <div class="resume-item">
@@ -466,7 +432,8 @@
                             <h5 class="fst-italic">2017 - 2020</h5>
                             <p><em>Asia Premier One Source Inc, PH</em></p>
                             <ul>
-                                <li>Created a System for Workforce Department for daily monitoring purposes and eventually became Integrated System to be used in the whole company.</li>
+                                <li>Created a System for Workforce Department for daily monitoring purposes and
+                                    eventually became Integrated System to be used in the whole company.</li>
                                 <li>Implementing Workorce Policies to ensure employees productivity</li>
                                 <li>Responsible for the Employees Schedules.</li>
                             </ul>
@@ -546,7 +513,8 @@
                             </div>
 
                             <iframe
-                                src="https://www.google.com/maps/embed/v1/place?q=Pansol,+Quezon+City,+Metro+Manila,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                                src="https://www.google.com/maps/embed/v1/place?q=Pansol,+Quezon+City,+Metro+Manila,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                         </div>
 
                     </div>
@@ -596,7 +564,9 @@
     <script src="static/plugins/iPortfolio/assets/vendor/typed.js/typed.umd.js"></script>
 
     <script src="static/js/main.js"></script>
-    
+    <script src="static/js/portfolio.js"></script>
+    <script src="static/plugins/isotope-layout/isotope.pkgd.min.js"></script>
+
 </body>
 
 </html>
