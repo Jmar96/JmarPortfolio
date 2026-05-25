@@ -863,3 +863,16 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* My additional styles */
+.link-no-style{
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  padding: 0.6rem 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
