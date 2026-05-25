@@ -1,585 +1,331 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
-    <!-- <script src="../assets/js/color-modes.js"></script> -->
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.112.5">
-    <title>jMar</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
-
-
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="static/css/portfolio.css">
-
-
-    <link href="static/plugins/bootstrap-5.3.0/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/plugins/iPortfolio/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="static/plugins/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;
-        }
-
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="static/plugins/bootstrap-5.3.0/carousel.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jMar | Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
-
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="check2" viewBox="0 0 16 16">
-            <path
-                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-        </symbol>
-        <symbol id="circle-half" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-        </symbol>
-        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-            <path
-                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-            <path
-                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-        </symbol>
-        <symbol id="sun-fill" viewBox="0 0 16 16">
-            <path
-                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-        </symbol>
-    </svg>
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
-            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
-            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-                <use href="#circle-half"></use>
-            </svg>
-            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-                    aria-pressed="false">
-                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                        <use href="#sun-fill"></use>
-                    </svg>
-                    Light
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-                    aria-pressed="false" disabled>
-                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                        <use href="#moon-stars-fill"></use>
-                    </svg>
-                    Dark
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
-                    aria-pressed="true" disabled>
-                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                        <use href="#circle-half"></use>
-                    </svg>
-                    Auto
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-        </ul>
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">jMar</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg-circle c1"></div>
+    <div class="hero-bg-circle c2"></div>
+
+    <div class="corner-deco tl"></div>
+    <div class="corner-deco tr"></div>
+    <div class="corner-deco bl"></div>
+    <div class="corner-deco br"></div>
+
+    <p class="hero-tag">// INITIALIZING USER PROFILE</p>
+    <h1 class="hero-name glitch" data-text="jMar"><span>j</span>Mar</h1>
+    <p class="hero-title"><span class="highlight">Systems Engineer</span> &amp; Web Developer // PH</p>
+    <p class="hero-subtitle">Career shifter turned engineer. Building systems, writing code, and shipping solutions from Quezon City.</p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Hire Me</a>
     </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
 
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">// 001</span>
+        <h2 class="section-title">About</h2>
+        <div class="section-line"></div>
+      </div>
 
-    <header data-bs-theme="dark">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">jMar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
-                    <!-- <div class="collapse navbar-collapse" id="navbarCollapse"> -->
-                    <ul class="navbar-nav ms-auto"><!-- <ul class="navbar-nav me-auto mb-2 mb-md-0"> -->
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#aboutme">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#resume">Resume</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link active" href="#services">Services</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">.</a>
-                        </li>
-                    </ul>
-                    <!-- <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> -->
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <!-- welcome.html Start -->
-        <!-- ======= Hero Section ======= -->
-        <section id="hero">
-            <div class="hero-container" data-aos="fade-in">
-                <h1>jMar</h1>
-                <h2>I'm a <span class="typed"
-                        data-typed-items="Programmer, Web Developer, Application Systems Engineer, Freelancer"></span>
-                    in PH</h2>
-                <a href="#aboutme" class="btn-scroll scrollto text-decoration-none" title="Scroll Down">&#9660;</a>
-            </div>
-        </section><!-- End Hero -->
-
-        <!-- ======= About Section ======= -->
-        <section id="aboutme" class="about">
-            <div class="container">
-
-                <div class="section-title">
-                    <span>About Me</span>
-                    <h2>About</h2>
-                    <!-- <p>A little information about me.</p> -->
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <img src="static/images/jmarSoloFront02.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                        <h3>Web Developer &amp; Software Engineer.</h3>
-                        <p>
-                            I'm a career shifter worked as a Workforce Analyst for 5 years and currently working now as
-                            a Systems Engineer.
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul>
-                                    <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span>
-                            </li> -->
-                                    <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong>
-                                        <a href="https://www.linkedin.com/in/jaymaryugo"
-                                            target="_blank"><span>www.linkedin.com/in/jaymaryugo</span></a>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63
-                                            9452913067</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Quezon
-                                            City,
-                                            PH</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul>
-                                    <!-- <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li> -->
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor's
-                                            degrees</span></li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                                        <span>jaymaryugo90@gmail.com</span>
-                                    </li>
-                                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-                                        <span>Available</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- <p>
-                            I'm a career shifter worked as a Workforce for 5 years and currently working now as a
-                            Software
-                            Engineer.
-                        </p> -->
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End About Section -->
-        
-        <div class="container">
-            <hr class="featurette-divider">
+      <div class="about-grid">
+        <div class="about-image-wrap fade-up">
+          <div class="about-image-frame">
+            <img src="static/images/jmarSoloFront02.jpg" alt="jMar" />
+            <span class="about-img-tag">// JMAR_PROFILE.IMG</span>
+          </div>
         </div>
 
-        <!-- ======= My Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-
-                <div class="section-title">
-                    <span>My Portfolio</span>
-                    <h2>My Portfolio</h2>
-                    <p>My previous projects</p>
-                </div>
-
-                <ul id="portfolio-flters" class="d-flex justify-content-center">
-                    <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-app">App</li>
-                    <li data-filter=".filter-card">Game</li>
-                    <li data-filter=".filter-web">Web</li>
-                </ul>
-
-                <div class="row portfolio-container">
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-img"><img src="static\images\TipidWise-Tab-DashBoard.png" class="img-fluid"
-                                alt=""></div>
-                        <div class="portfolio-info">
-                            <h4>TipidWise</h4>
-                            <p>TipidWise - Personal Financial Tracker</p>
-                            <a href="static\images\TipidWise-Tab-DashBoard.png" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-img"><img src="static\images\AIS.png" class="img-fluid"
-                                alt=""></div>
-                        <div class="portfolio-info">
-                            <h4>AIS</h4>
-                            <p>APOSI Integrated System - Management System for the APOSI</p>
-                            <a href="static\images\AIS.png" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <div class="portfolio-img"><img src="static\images\OnlineLibrarySystemWithRFID.png" class="img-fluid"
-                                alt=""></div>
-                        <div class="portfolio-info">
-                            <h4>Online Library System</h4>
-                            <p>Online Library System with RFID for AMA Learning Centers</p>
-                            <a href="static\images\OnlineLibrarySystemWithRFID.png" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-img"><img src="static\images\zSurvivor.png" class="img-fluid"
-                                alt=""></div>
-                        <div class="portfolio-info">
-                            <h4>Z Survivor</h4>
-                            <p>2D top down zombie shooting game</p>
-                            <a href="static\images\zSurvivor.png" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                    class="bx bx-link"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
+        <div class="fade-up">
+          <p class="about-name">Jay Mar Yugo</p>
+          <p class="about-role">&gt; Web Developer &amp; Software Engineer</p>
+          <p class="about-text">
+            A passionate career shifter who spent 5+ years as a Workforce Analyst before transitioning into the world of software engineering. Currently working as a Systems Engineer at Fujitsu PH, building, maintaining, and improving enterprise-grade systems.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-label">LinkedIn&nbsp;</span>
+              <span class="info-value"><a href="https://www.linkedin.com/in/jaymaryugo" target="_blank">jaymaryugo</a></span>
             </div>
-        </section><!-- End My Portfolio Section -->
+            <div class="info-item">
+              <span class="info-label">Phone&nbsp;</span>
+              <span class="info-value">+63 9452913067</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location&nbsp;</span>
+              <span class="info-value">Quezon City, PH</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Degree&nbsp;</span>
+              <span class="info-value">BSIT</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email&nbsp;</span>
+              <span class="info-value"><a href="mailto:jaymaryugo90@gmail.com">jaymaryugo90@gmail.com</a></span>
+            </div>
+          </div>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Freelance Available
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="container">
-            <hr class="featurette-divider">
+  <!-- PORTFOLIO -->
+  <section id="portfolio" style="background: var(--dark-surface);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">// 002</span>
+        <h2 class="section-title">Portfolio</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="filter-bar fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="game">Game</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="project-card fade-up" data-category="app">
+          <div class="project-img">
+            <img src="static/images/TipidWise-Tab-DashBoard.png" alt="TipidWise" />
+            <div class="project-img-overlay"></div>
+            <span class="project-type">App</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">TipidWise</h3>
+            <p class="project-desc">Personal Financial Tracker — manage your money, track expenses and build better financial habits.</p>
+            <a href="https://jmar96.github.io/JmarPortfolio/portfolio-details.html" class="project-link" target="_blank">View Details</a>
+          </div>
         </div>
 
-        <!-- ======= Resume Section ======= -->
-        <section id="resume" class="resume">
-            <div class="container">
-
-                <div class="section-title">
-                    <span>My Resume</span>
-                    <h2>Resume</h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6" data-aos="fade-up">
-                        <h3 class="resume-title">Summary</h3>
-                        <div class="resume-item pb-0">
-                            <h4>jmar</h4>
-                            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
-                                    and developing user-centered digital/print marketing material from initial concept
-                                    to final, polished deliverable.</em></p>
-                            <ul>
-                                <li>Pansol, Quezon City</li>
-                                <li>+63 94529 13067</li>
-                                <li>jaymaryugo90@gmail.com</li>
-                            </ul>
-                        </div>
-
-                        <h3 class="resume-title">Education</h3>
-                        <div class="resume-item">
-                            <h4>Bachelor of Science in Information Technology</h4>
-                            <h5 class="fst-italic">2013 - 2017</h5>
-                            <p><em>Access Computer College, PH</em></p>
-                            <p>
-                                Studied Website Development.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="resume-title">Professional Experience</h3>
-                        <div class="resume-item">
-                            <h4>Application Systems Engineer</h4>
-                            <h5 class="fst-italic">2022 - Present</h5>
-                            <p><em>Fujitsu PH </em></p>
-                            <ul>
-                                <li>Responsible for assessing systems, determining problems, providing solutions to
-                                    issues that arise,
-                                    designing systems, upgrading systems, maintaining systems and brainstorming possible
-                                    improvements that
-                                    can be made to a system in the future.</li>
-                                <li>Do Unit Testing to existing systems.</li>
-                                <li>Perform Reverse Engineering, examining the systems structure and create UI
-                                    Documentaion</li>
-                            </ul>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Workforce Analysts Supervisor</h4>
-                            <h5 class="fst-italic">2020 - 2022</h5>
-                            <p><em>Supports Services Group, PH</em></p>
-                            <ul>
-                                <li>Lead the Workforce Team in implementing the Workforce Policies to ensure employees
-                                    productivity.</li>
-                                <li>Develop and Maintain the companies Integrated System</li>
-                                <li>Responsible for Employees Schedules.</li>
-                                <li>Perform Queue management to reduce end-user wait times and increase employee
-                                    productivity.</li>
-                            </ul>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Workforce Analysts</h4>
-                            <h5 class="fst-italic">2017 - 2020</h5>
-                            <p><em>Asia Premier One Source Inc, PH</em></p>
-                            <ul>
-                                <li>Created a System for Workforce Department for daily monitoring purposes and
-                                    eventually became Integrated System to be used in the whole company.</li>
-                                <li>Implementing Workorce Policies to ensure employees productivity</li>
-                                <li>Responsible for the Employees Schedules.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Resume Section -->
-
-        <!-- <div class="container marketing" id="reference">
-
-            <div class="section-title">
-                <span>Reference</span>
-                <h2>Reference</h2>
-                <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <img src="static/images/2840f6d8-ffbe-43d4-9214-3c94e8263668.png" class="imgcircle" width="140" height="140" alt="Avatar">
-                    <h2 class="fw-normal">RamJ</h2>
-                    <p>My imaginary friend who was an AI.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <img src="static/images/IMG_20230307_182550.jpg" class="imgcircle" width="140" height="140" alt="Avatar">
-                    <h2 class="fw-normal">Mar</h2>
-                    <p>My friend who was called "taong bahay".</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="col-lg-4">
-                    <img src="static/images/3cb9ff19-9574-4566-9f33-5344839ca5f6.jpeg" class="imgcircle" width="140" height="140" alt="Avatar">
-                    <h2 class="fw-normal">JM</h2>
-                    <p>My hard working friend.</p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-                </div>
-            </div>
-
-        </div> -->
-        <div class="container">
-            <hr class="featurette-divider">
+        <div class="project-card fade-up" data-category="app">
+          <div class="project-img">
+            <img src="static/images/AIS.png" alt="AIS" />
+            <div class="project-img-overlay"></div>
+            <span class="project-type">App</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">AIS</h3>
+            <p class="project-desc">APOSI Integrated System — a comprehensive management system built for the APOSI organization.</p>
+            <a href="https://jmar96.github.io/JmarPortfolio/portfolio-details.html" class="project-link" target="_blank">View Details</a>
+          </div>
         </div>
 
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
+        <div class="project-card fade-up" data-category="web">
+          <div class="project-img">
+            <img src="static/images/OnlineLibrarySystemWithRFID.png" alt="Online Library System" />
+            <div class="project-img-overlay"></div>
+            <span class="project-type">Web</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Online Library System</h3>
+            <p class="project-desc">RFID-powered online library system built for AMA Learning Centers to streamline book management.</p>
+            <a href="https://jmar96.github.io/JmarPortfolio/portfolio-details.html" class="project-link" target="_blank">View Details</a>
+          </div>
+        </div>
 
-                <div class="section-title">
-                    <span>Contact</span>
-                    <h2>Contact</h2>
-                    <p>
-                        As of now, email me is not yet working.
-                    </p>
-                </div>
+        <div class="project-card fade-up" data-category="game">
+          <div class="project-img">
+            <img src="static/images/zSurvivor.png" alt="Z Survivor" />
+            <div class="project-img-overlay"></div>
+            <span class="project-type">Game</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Z Survivor</h3>
+            <p class="project-desc">A 2D top-down zombie shooting game — survive the horde, gather resources, and fight to the end.</p>
+            <a href="https://jmar96.github.io/JmarPortfolio/portfolio-details.html" class="project-link" target="_blank">View Details</a>
+          </div>
+        </div>
 
-                <div class="row" data-aos="fade-in">
+      </div>
+    </div>
+  </section>
 
-                    <div class="col-lg-5 d-flex align-items-stretch">
-                        <div class="info">
-                            <div class="address">
-                                <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
-                                <p>Pansol, Quezon City</p>
-                            </div>
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">// 003</span>
+        <h2 class="section-title">Resume</h2>
+        <div class="section-line"></div>
+      </div>
 
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>jaymaryugo90@gmail.com</p>
-                            </div>
+      <div class="resume-grid">
+        <!-- EXPERIENCE -->
+        <div class="fade-up">
+          <p class="resume-col-title">// Work Experience</p>
+          <div class="timeline">
 
-                            <div class="phone">
-                                <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
-                                <p>+64 9452913067</p>
-                            </div>
-
-                            <iframe
-                                src="https://www.google.com/maps/embed/v1/place?q=Pansol,+Quezon+City,+Metro+Manila,+Philippines&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form action="mailto:jaymaryugo90@gmail.com" method="post" role="form" class="php-email-form">
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" name="name" class="form-control" id="name" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control" name="message" rows="10" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
-                    </div>
-
-                </div>
-
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-period">2022 — Present</p>
+              <h3 class="timeline-title">Application Systems Engineer</h3>
+              <p class="timeline-org">Fujitsu PH</p>
+              <ul class="timeline-desc">
+                <li>Assess systems, determine problems, and provide solutions for future improvements.</li>
+                <li>Perform unit testing on existing systems and do reverse engineering.</li>
+                <li>Create UI documentation from system analysis.</li>
+              </ul>
             </div>
-        </section><!-- End Contact Section -->
-        <!-- welcome.html End -->
 
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-    </main>
-    <script src="static/plugins/bootstrap-5.3.0/assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="static/plugins/iPortfolio/assets/vendor/typed.js/typed.umd.js"></script>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-period">2020 — 2022</p>
+              <h3 class="timeline-title">Workforce Analyst Supervisor</h3>
+              <p class="timeline-org">Supports Services Group, PH</p>
+              <ul class="timeline-desc">
+                <li>Led the Workforce Team in implementing company policies.</li>
+                <li>Developed and maintained the company Integrated System.</li>
+                <li>Performed queue management to optimize employee productivity.</li>
+              </ul>
+            </div>
 
-    <script src="static/js/main.js"></script>
-    <script src="static/js/portfolio.js"></script>
-    <script src="static/plugins/isotope-layout/isotope.pkgd.min.js"></script>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-period">2017 — 2020</p>
+              <h3 class="timeline-title">Workforce Analyst</h3>
+              <p class="timeline-org">Asia Premier One Source Inc., PH</p>
+              <ul class="timeline-desc">
+                <li>Built a system for the Workforce Department that became a company-wide Integrated System.</li>
+                <li>Implemented workforce policies and managed employee schedules.</li>
+              </ul>
+            </div>
 
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="fade-up">
+          <p class="resume-col-title">// Education</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <p class="timeline-period">2013 — 2017</p>
+              <h3 class="timeline-title">BS Information Technology</h3>
+              <p class="timeline-org">Access Computer College, PH</p>
+              <p class="timeline-desc" style="color: var(--text-secondary); font-size: 0.88rem;">
+                Focused on Website Development and software engineering fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 3rem;">
+            <p class="resume-col-title">// Skills</p>
+            <div class="skills-grid">
+              <span class="skill-tag">HTML / CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">WordPress</span>
+              <span class="skill-tag">RFID Systems</span>
+              <span class="skill-tag">UI Documentation</span>
+              <span class="skill-tag">System Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background: var(--dark-surface);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-tag">// 004</span>
+        <h2 class="section-title">Contact</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="fade-up">
+          <p style="color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 1rem; line-height: 1.8;">
+            Have a project in mind or want to work together? Feel free to reach out. I'm currently open to freelance opportunities.
+          </p>
+          <div class="contact-card">
+            <p class="contact-label">Location</p>
+            <p class="contact-value">Pansol, Quezon City, PH</p>
+
+            <p class="contact-label">Email</p>
+            <p class="contact-value"><a href="mailto:jaymaryugo90@gmail.com">jaymaryugo90@gmail.com</a></p>
+
+            <p class="contact-label">Phone</p>
+            <p class="contact-value">+63 9452913067</p>
+
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value" style="margin-bottom: 0;"><a href="https://www.linkedin.com/in/jaymaryugo" target="_blank">linkedin.com/in/jaymaryugo</a></p>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-input" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+            <p id="form-feedback" style="font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--neon-cyan); display: none;">// Message transmitted successfully.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-text">© 2024 jMar — Built with <span>&#9829;</span> in Quezon City, PH</p>
+  </footer>
+
+  <script src="static/js/main.js"></script>
 </body>
-
 </html>
