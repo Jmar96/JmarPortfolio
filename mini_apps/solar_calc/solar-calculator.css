@@ -1,0 +1,406 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sun: #F59E0B;
+  --sun-light: #FEF3C7;
+  --sun-mid: #FDE68A;
+  --green: #059669;
+  --green-light: #D1FAE5;
+  --navy: #1E3A5F;
+  --navy-mid: #2D5282;
+  --slate: #334155;
+  --slate-mid: #64748B;
+  --slate-light: #F1F5F9;
+  --white: #FFFFFF;
+  --border: #E2E8F0;
+  --border-focus: #F59E0B;
+  --danger: #DC2626;
+  --danger-light: #FEE2E2;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #0F172A 100%);
+  min-height: 100vh;
+  color: var(--text);
+  padding: 2rem 1rem;
+}
+
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ─────────────────────────────────── */
+.site-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--sun);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 28px;
+  box-shadow: 0 0 0 12px rgba(245,158,11,0.15), 0 0 0 24px rgba(245,158,11,0.05);
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.site-header p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* ── SECTION CARDS ───────────────────────────── */
+.section-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1.1rem 1.5rem;
+  background: var(--navy);
+  color: #fff;
+}
+
+.section-num {
+  width: 28px;
+  height: 28px;
+  background: var(--sun);
+  color: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.section-body {
+  padding: 1.5rem;
+}
+
+/* ── APPLIANCE TABLE ─────────────────────────── */
+.appliance-table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead th {
+  background: var(--slate-light);
+  color: var(--slate);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) { background: #FAFBFD; }
+
+tbody td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.td-motor { text-align: center; }
+
+/* ── INPUTS ──────────────────────────────────── */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: #FFFEF8;
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  background: #FFFDF0;
+}
+
+input.computed {
+  background: var(--slate-light);
+  color: var(--slate-mid);
+  font-weight: 600;
+  cursor: default;
+}
+
+/* ── CHECKBOX MOTOR ──────────────────────────── */
+.motor-check {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sun);
+  cursor: pointer;
+}
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn-add-row {
+  background: none;
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.btn-add-row:hover { border-color: var(--sun); color: var(--sun); }
+
+.btn-del {
+  background: none;
+  border: none;
+  color: var(--slate-mid);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+  line-height: 1;
+}
+
+.btn-del:hover { color: var(--danger); background: var(--danger-light); }
+
+/* ── FORM GRID ───────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--slate-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ── SUB-SECTION DIVIDER ─────────────────────── */
+.sub-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 1.25rem 0 0.75rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── SYSTEM LOSS TABLE ───────────────────────── */
+.loss-table { margin-top: 0.5rem; }
+
+.loss-row {
+  display: grid;
+  grid-template-columns: 1fr 110px 110px;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.loss-row:last-child { border-bottom: none; }
+.loss-label { font-size: 0.875rem; font-weight: 500; }
+.loss-pct { font-size: 0.8rem; }
+
+/* ── RESULT CARDS ────────────────────────────── */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-card {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.result-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 6px;
+}
+
+.result-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sun);
+  line-height: 1.1;
+}
+
+.result-unit {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+.result-hint {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── DETAIL TABLE (CB & Wire) ────────────────── */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.detail-table thead th {
+  background: var(--navy);
+  color: rgba(255,255,255,0.75);
+  padding: 9px 14px;
+  text-align: left;
+  border: none;
+}
+
+.detail-table tbody td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-table tbody tr:last-child td { border-bottom: none; }
+
+.badge {
+  display: inline-block;
+  background: var(--sun-light);
+  color: #78350F;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ── CALCULATE BUTTON ────────────────────────── */
+.calc-btn-wrap {
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+#calcBtn {
+  background: var(--sun);
+  color: var(--navy);
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 48px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+  transition: all 0.18s;
+}
+
+#calcBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(245,158,11,0.45);
+}
+
+#calcBtn:active { transform: translateY(0); }
+
+/* ── RESULTS SECTION ─────────────────────────── */
+#resultsSection { display: none; }
+
+/* ── VDI NOTE ────────────────────────────────── */
+.vdi-note {
+  background: #FFFDF0;
+  border: 1.5px solid #FDE68A;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.82rem;
+  color: #78350F;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* ── ENERGY SUMMARY ROW ──────────────────────── */
+.energy-row {
+  background: var(--green-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.energy-row strong {
+  color: var(--green);
+  font-size: 1rem;
+}

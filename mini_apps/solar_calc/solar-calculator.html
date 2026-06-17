@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Setup Calculator</title>
+  <link rel="stylesheet" href="solar-calculator.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ── HEADER ──────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="logo-icon">☀️</div>
+    <h1>Solar Setup Calculator</h1>
+    <p>Size your off-grid solar system accurately — based on your actual load and components</p>
+  </header>
+
+  <!-- ── SECTION 1: LOAD CONSUMPTION ────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Load Consumption — Appliances</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        Enter all appliances. White cells are editable. Check <strong>Motor?</strong> for appliances
+        with electric motors (fans, pumps, AC) — their startup surge is tripled for inverter sizing.
+      </p>
+      <div class="appliance-table-wrap">
+        <table id="applianceTable">
+          <thead>
+            <tr>
+              <th style="min-width:160px">Appliance</th>
+              <th style="min-width:80px">Watts (W)</th>
+              <th style="min-width:90px">Hours/Day</th>
+              <th style="min-width:70px">Qty</th>
+              <th style="min-width:90px">Wh/Day</th>
+              <th style="min-width:70px;text-align:center">Motor?</th>
+              <th style="min-width:90px">Motor Watts</th>
+              <th style="width:36px"></th>
+            </tr>
+          </thead>
+          <tbody id="applianceBody"></tbody>
+        </table>
+      </div>
+      <button class="btn-add-row" onclick="addRow()">+ Add Appliance</button>
+      <div class="energy-row" id="totalEnergyRow">
+        <span>Total Energy/Day</span>
+        <strong id="totalEnergy">0 Wh</strong>
+        <span style="margin-left:2rem;">Total Motor Watts</span>
+        <strong id="totalMotorW">0 W</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: SYSTEM LOSS ──────────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>System Loss Factors</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        Each component introduces loss. Adjust percentages if your equipment specs differ.
+      </p>
+      <div class="loss-table">
+        <div class="loss-row" style="font-weight:700;font-size:0.78rem;color:var(--slate-mid);text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--border);">
+          <span>Component</span><span>Loss %</span><span>Loss (Wh, computed)</span>
+        </div>
+        <div class="loss-row">
+          <span class="loss-label">Solar Panel</span>
+          <div class="field loss-pct"><input type="number" id="lossSolar" value="2.5" step="0.1" min="0" max="100" oninput="updateLossDisplay()"></div>
+          <span id="lossSolarVal" class="loss-pct" style="color:var(--text-muted)">—</span>
+        </div>
+        <div class="loss-row">
+          <span class="loss-label">Wires</span>
+          <div class="field loss-pct"><input type="number" id="lossWires" value="2" step="0.1" min="0" max="100" oninput="updateLossDisplay()"></div>
+          <span id="lossWiresVal" class="loss-pct" style="color:var(--text-muted)">—</span>
+        </div>
+        <div class="loss-row">
+          <span class="loss-label">Solar Charge Controller</span>
+          <div class="field loss-pct"><input type="number" id="lossSCC" value="10" step="0.1" min="0" max="100" oninput="updateLossDisplay()"></div>
+          <span id="lossSCCVal" class="loss-pct" style="color:var(--text-muted)">—</span>
+        </div>
+        <div class="loss-row">
+          <span class="loss-label">Battery</span>
+          <div class="field loss-pct"><input type="number" id="lossBatt" value="10" step="0.1" min="0" max="100" oninput="updateLossDisplay()"></div>
+          <span id="lossBattVal" class="loss-pct" style="color:var(--text-muted)">—</span>
+        </div>
+        <div class="loss-row">
+          <span class="loss-label">Inverter</span>
+          <div class="field loss-pct"><input type="number" id="lossInv" value="10" step="0.1" min="0" max="100" oninput="updateLossDisplay()"></div>
+          <span id="lossInvVal" class="loss-pct" style="color:var(--text-muted)">—</span>
+        </div>
+      </div>
+      <div class="energy-row" style="margin-top:12px;">
+        <span>Total System Loss</span>
+        <strong id="totalLossPct" style="color:#059669">—%</strong>
+        <span style="margin-left:2rem;">Loss (Wh)</span>
+        <strong id="totalLossWh" style="color:#059669">— Wh</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: BATTERY ───────────────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Battery Configuration</h2>
+    </div>
+    <div class="section-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Battery System Voltage (V)</label>
+          <select id="battVolt">
+            <option value="12">12V</option>
+            <option value="24" selected>24V</option>
+            <option value="48">48V</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Battery Type</label>
+          <select id="battType">
+            <option value="Lead Acid">Lead Acid (DoD 50%)</option>
+            <option value="Lithium">Lithium (DoD 80%)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Days of Autonomy</label>
+          <input type="number" id="daysAuto" value="1" min="1" max="10">
+          <span class="field-hint">Backup days without solar input</span>
+        </div>
+        <div class="field">
+          <label>Desired Battery Capacity (Ah)</label>
+          <input type="number" id="battAh" value="100" min="1">
+          <span class="field-hint">Round up from the Calculated Ah below after computing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: SOLAR PANEL & SCC ────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Solar Panel &amp; Charge Controller</h2>
+    </div>
+    <div class="section-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Peak Sun Hours (PSH)</label>
+          <input type="number" id="psh" value="3.5" step="0.1" min="1">
+          <span class="field-hint">Search "peak sun hours Philippines" for your area. Avg ≈ 3.5–5 sh</span>
+        </div>
+        <div class="field">
+          <label>SCC Type</label>
+          <select id="sccType">
+            <option value="MPPT">MPPT (Recommended, 95–99% efficiency)</option>
+            <option value="PWM">PWM (70–75% efficiency)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Solar Panel ISC (A)</label>
+          <input type="number" id="panelISC" value="11.85" step="0.01">
+          <span class="field-hint">Short circuit current from panel datasheet</span>
+        </div>
+        <div class="field">
+          <label>Solar Panel IMP (A)</label>
+          <input type="number" id="panelIMP" value="8.83" step="0.01">
+          <span class="field-hint">Current at maximum power — for wire sizing</span>
+        </div>
+        <div class="field">
+          <label>Solar Panel VMP (V)</label>
+          <input type="number" id="panelVMP" value="37.4" step="0.1">
+          <span class="field-hint">Voltage at max power from datasheet</span>
+        </div>
+        <div class="field">
+          <label>No. of Strings in Parallel</label>
+          <input type="number" id="numStrings" value="1" min="1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: INVERTER ─────────────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Inverter</h2>
+    </div>
+    <div class="section-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Inverter Capacity (W)</label>
+          <input type="number" id="inverterW" value="500" min="1">
+          <span class="field-hint">Actual inverter size you have or plan to buy</span>
+        </div>
+        <div class="field">
+          <label>Grid / AC Voltage (V)</label>
+          <input type="number" id="gridVolt" value="220">
+          <span class="field-hint">Philippines standard: 220V @ 60Hz</span>
+        </div>
+        <div class="field">
+          <label>Max Load Factor</label>
+          <input type="number" id="maxLoad" value="0.7" step="0.05" min="0.1" max="1">
+          <span class="field-hint">Typical: 0.7 (use 70% of inverter rating)</span>
+        </div>
+        <div class="field">
+          <label>Inverter Efficiency Allowance</label>
+          <input type="number" id="invEff" value="0.2" step="0.05" min="0">
+          <span class="field-hint">Typically 0.2 (20% buffer added)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: CIRCUIT BREAKERS ────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Circuit Breaker Inputs</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">Solar Panel → SCC (DC)</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Safety Factor 1</label>
+          <input type="number" id="cbSF1a" value="1.25" step="0.05">
+        </div>
+        <div class="field">
+          <label>Safety Factor 2</label>
+          <input type="number" id="cbSF1b" value="1.25" step="0.05">
+        </div>
+      </div>
+
+      <div class="sub-label">SCC → Battery (DC)</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Panel Array Total Watts (W)</label>
+          <input type="number" id="arrayw" value="200">
+          <span class="field-hint">Total wattage of all panels combined</span>
+        </div>
+        <div class="field">
+          <label>Safety Factor</label>
+          <input type="number" id="cbSF2" value="1.25" step="0.05">
+        </div>
+      </div>
+
+      <div class="sub-label">Battery → Inverter (DC)</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Safety Factor</label>
+          <input type="number" id="cbSF3" value="1">
+          <span class="field-hint">1 = no extra buffer, 1.25 = 25% safety margin</span>
+        </div>
+      </div>
+
+      <div class="sub-label">Inverter → Load / Outlet (AC)</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Safety Factor</label>
+          <input type="number" id="cbSF4" value="1.25" step="0.05">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 7: WIRE SIZING ──────────────────────────── -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Wire Sizing Inputs</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        VDI (Voltage Drop Index) = (Amps × Length) ÷ (Voltage × %Drop).
+        Use the result to look up AWG size in a VDI table.
+      </p>
+
+      <div class="sub-label">Solar Panel → SCC</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Wire Length (ft)</label>
+          <input type="number" id="w1len" value="25" step="0.5">
+        </div>
+        <div class="field">
+          <label>Allowable Voltage Drop %</label>
+          <input type="number" id="w1vd" value="2" step="0.5">
+        </div>
+      </div>
+
+      <div class="sub-label">SCC → Battery</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>SCC Max Charging Current (A)</label>
+          <input type="number" id="w2amps" value="40" step="0.5">
+        </div>
+        <div class="field">
+          <label>Wire Length (ft)</label>
+          <input type="number" id="w2len" value="5" step="0.5">
+        </div>
+        <div class="field">
+          <label>Battery Voltage (V)</label>
+          <input type="number" id="w2volt" value="12.8" step="0.1">
+          <span class="field-hint">Nominal battery voltage (not system voltage)</span>
+        </div>
+        <div class="field">
+          <label>Allowable Voltage Drop %</label>
+          <input type="number" id="w2vd" value="2" step="0.5">
+        </div>
+      </div>
+
+      <div class="sub-label">Battery → Inverter &amp; Inverter → Load</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Inverter Power (W)</label>
+          <input type="number" id="w3invw" value="1000">
+        </div>
+        <div class="field">
+          <label>Wire Length (ft)</label>
+          <input type="number" id="w3len" value="5.5" step="0.5">
+        </div>
+        <div class="field">
+          <label>Allowable Voltage Drop %</label>
+          <input type="number" id="w3vd" value="2" step="0.5">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── CALCULATE BUTTON ─────────────────────────────────── -->
+  <div class="calc-btn-wrap">
+    <button id="calcBtn" onclick="calculate()">☀ Calculate Solar Setup</button>
+  </div>
+
+  <!-- ── RESULTS ──────────────────────────────────────────── -->
+  <div id="resultsSection">
+    <div class="section-card">
+      <div class="section-header" style="background:#059669;">
+        <div class="section-num" style="background:#fff;color:#059669;">✓</div>
+        <h2>Results Summary</h2>
+      </div>
+      <div class="section-body">
+
+        <div class="sub-label">Energy &amp; Load</div>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-label">Total Daily Load</div>
+            <div class="result-val" id="r-totalLoad">—</div>
+            <div class="result-unit">Wh/day (with system loss)</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Total Load w/ Autonomy</div>
+            <div class="result-val" id="r-totalLoadAuto">—</div>
+            <div class="result-unit">Wh</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Min. Inverter Size</div>
+            <div class="result-val" id="r-inverter">—</div>
+            <div class="result-unit">W — round up to next size</div>
+            <div class="result-hint">Pure Sine Wave recommended</div>
+          </div>
+        </div>
+
+        <div class="sub-label">Battery</div>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-label">Calculated Battery (Ah)</div>
+            <div class="result-val" id="r-battAhCalc">—</div>
+            <div class="result-unit">Ah — round up to nearest standard size</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Battery Needed</div>
+            <div class="result-val" id="r-battery">—</div>
+            <div class="result-unit">Based on your selected Ah</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Usable Battery Energy</div>
+            <div class="result-val" id="r-battEnergy">—</div>
+            <div class="result-unit">Wh (at selected DoD)</div>
+          </div>
+        </div>
+
+        <div class="sub-label">Solar Panel</div>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-label">Min. Solar Panel Capacity</div>
+            <div class="result-val" id="r-solar">—</div>
+            <div class="result-unit">W — round up to next standard panel</div>
+            <div class="result-hint">E.g., if result is 171W → use 200W panel</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Min. SCC Rating</div>
+            <div class="result-val" id="r-scc">—</div>
+            <div class="result-unit">A — round up to next standard size</div>
+            <div class="result-hint">E.g., if result is 14.8A → use 20A SCC</div>
+          </div>
+        </div>
+
+        <div class="sub-label">Circuit Breakers (round up to nearest standard CB)</div>
+        <table class="detail-table">
+          <thead>
+            <tr><th>Connection</th><th>Type</th><th>Required (A)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Solar Panel → SCC</td>        <td>DC</td><td><span class="badge" id="r-cb1">—</span></td></tr>
+            <tr><td>SCC → Battery</td>             <td>DC</td><td><span class="badge" id="r-cb2">—</span></td></tr>
+            <tr><td>Battery → Inverter</td>        <td>DC</td><td><span class="badge" id="r-cb3">—</span></td></tr>
+            <tr><td>Inverter → Load / Outlet</td>  <td>AC</td><td><span class="badge" id="r-cb4">—</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="sub-label" style="margin-top:1.5rem;">Wire Sizing — VDI Values (look up AWG in VDI table)</div>
+        <table class="detail-table">
+          <thead>
+            <tr><th>Connection</th><th>VDI Value</th><th>Amps Used</th><th>Length (ft)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Solar Panel → SCC</td>
+              <td><span class="badge" id="r-w1vdi">—</span></td>
+              <td id="r-w1amps">—</td>
+              <td id="r-w1len">—</td>
+            </tr>
+            <tr>
+              <td>SCC → Battery</td>
+              <td><span class="badge" id="r-w2vdi">—</span></td>
+              <td id="r-w2amps">—</td>
+              <td id="r-w2len">—</td>
+            </tr>
+            <tr>
+              <td>Battery → Inverter &amp; Load</td>
+              <td><span class="badge" id="r-w3vdi">—</span></td>
+              <td id="r-w3amps">—</td>
+              <td id="r-w3len">—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="vdi-note">
+          ⚡ <strong>How to use VDI:</strong> Take your VDI number, find the next higher value in a
+          standard VDI-to-AWG wire table, and use that AWG wire gauge. A higher VDI means you need a
+          thicker (lower AWG number) wire. For DC runs under 15 ft, AWG 10 is a common safe choice;
+          for long runs or high current, go thicker.
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .page-wrapper -->
+
+<script src="solar-calculator.js"></script>
+</body>
+</html>
