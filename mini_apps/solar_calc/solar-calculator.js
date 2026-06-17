@@ -76,6 +76,10 @@ function recalcTotals() {
 
   document.getElementById('totalEnergy').textContent  = totalWh.toFixed(0)     + ' Wh';
   document.getElementById('totalMotorW').textContent  = totalMotorW.toFixed(0) + ' W';
+  
+  const invEff = document.getElementById('invEff').value;
+  let inverterW = totalWh + (totalMotorW * invEff) + totalMotorW;
+  document.getElementById('inverterW').value          = inverterW;
   updateLossDisplay();
 }
 
@@ -176,7 +180,7 @@ function calculate() {
 
   /* Inverter */
   const invEff      = parseFloat(document.getElementById('invEff').value) || 0.2;
-  const minInverter = totalMotorW + totalMotorW * invEff;
+  const minInverter = totalMotorW + (totalMotorW * invEff) + totalWh;
 
   /* Circuit breakers */
   const sf1a    = parseFloat(document.getElementById('cbSF1a').value) || 1.25;

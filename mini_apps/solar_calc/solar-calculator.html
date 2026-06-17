@@ -38,7 +38,7 @@
               <th style="min-width:70px">Qty</th>
               <th style="min-width:90px">Wh/Day</th>
               <th style="min-width:70px;text-align:center">Motor?</th>
-              <th style="min-width:90px">Motor Watts</th>
+              <th style="min-width:90px">Motor Surge (Wx3)</th>
               <th style="width:36px"></th>
             </tr>
           </thead>
@@ -49,7 +49,7 @@
       <div class="energy-row" id="totalEnergyRow">
         <span>Total Energy/Day</span>
         <strong id="totalEnergy">0 Wh</strong>
-        <span style="margin-left:2rem;">Total Motor Watts</span>
+        <span style="margin-left:2rem;">Total with Motor Surge (Watts)</span>
         <strong id="totalMotorW">0 W</strong>
       </div>
     </div>
@@ -194,8 +194,8 @@
       <div class="form-grid">
         <div class="field">
           <label>Inverter Capacity (W)</label>
-          <input type="number" id="inverterW" value="500" min="1">
-          <span class="field-hint">Actual inverter size you have or plan to buy</span>
+          <input type="number" id="inverterW" value="500" min="1" class="computed" readonly>
+          <span class="field-hint">Actual inverter size you need to have or to buy</span>
         </div>
         <div class="field">
           <label>Grid / AC Voltage (V)</label>
